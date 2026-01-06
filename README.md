@@ -155,8 +155,7 @@ SPREAD-A-SMILE-INDIA/
 │   │   ├── mission.ejs      # Mission & Vision
 │   │   ├── history.ejs      # Organization history
 │   │   ├── founder.ejs      # Sangita Mehra's story
-│   │   ├── team.ejs         # Team members & advisors
-│   │   └── partners.ejs     # Collaborators & partnerships
+│   │   └── team.ejs         # Team members & advisors
 │   │
 │   ├── programs/            # Programs section
 │   │   ├── index.ejs        # Programs overview
@@ -177,7 +176,6 @@ SPREAD-A-SMILE-INDIA/
 │   │   ├── index.ejs        # Get involved overview
 │   │   ├── volunteer.ejs    # Volunteer opportunities & signup
 │   │   ├── donate.ejs       # Donation forms & options
-│   │   ├── careers.ejs      # Job openings & internships
 │   │   └── [more pages...]
 │   │
 │   └── media/               # Media & communications
@@ -205,7 +203,7 @@ SPREAD-A-SMILE-INDIA/
 │   ├── js/                  # Interactive functionality
 │   │   ├── script.js        # Global JavaScript & theme management
 │   │   ├── homepage.js      # Homepage interactions
-│   │   ├── landing.js       # Landing page functionality
+│   │   ├── 6 js       # Landing page functionality
 │   │   ├── mobile-menu.js   # Mobile navigation
 │   │   ├── timeline.js      # Timeline interactions
 │   │   ├── candle-shop.js   # Core shop functionality (NEW)
@@ -236,7 +234,6 @@ SPREAD-A-SMILE-INDIA/
    - Our Story/History
    - Founder (Sangita Mehra)
    - Team Members
-   - Partners & Collaborators
 3. **🎯 Programs** - Service offerings
    - Education Support
    - Health & Wellness
@@ -251,8 +248,6 @@ SPREAD-A-SMILE-INDIA/
 5. **🤝 Get Involved** - Engagement opportunities
    - Volunteer
    - Donate
-   - Partner/Collaborate
-   - Careers & Internships
 6. **📺 Media** - Visual content
    - Photo Gallery
    - Press Coverage

@@ -1,41 +1,11 @@
 /* Enhanced CSS with Google Fonts, Icons, and Micro-interactions */
-
-:root {
-  /* Light theme colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #FFF8F0;
-  --color-primary: #F7941D;
-  --color-secondary: #ED1C24;
-  --color-accent: #EC4F78;
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --border-color: rgba(229, 231, 235, 0.3);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1C1C1C;
-  --bg-secondary: #121821;
-  --color-primary: #F7941D;
-  --color-secondary: #ED1C24;
-  --color-accent: #FF7FA2;
-  --text-primary: #E6E6E6;
-  --text-secondary: #B3B3B3;
-  --border-color: rgba(75, 85, 99, 0.3);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-}
+/* CSS Variables are now centralized in variables.css */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: 0;
-
 }
 
 /* Hide scrollbar for all browsers */

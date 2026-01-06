@@ -217,7 +217,7 @@ router.get('/statistics', async (req, res) => {
             yearsOfService: 15,
             projectsCompleted: 125,
             volunteersActive: 85,
-            partnersSupporting: 32,
+            contributorsSupporting: 32,
             statesReached: 5
         };
 

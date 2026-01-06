@@ -35,22 +35,4 @@ router.get('/donate', (req, res) => {
   });
 });
 
-// Collaborate
-router.get('/partners', (req, res) => {
-  res.render('get-involved/partners', { 
-    title: 'Collaborate With Us - Spread A Smile India',
-    page: 'get-involved',
-    metaDescription: 'Collaborate with us through CSR partnerships, corporate sponsorships, or institutional alliances.'
-  });
-});
-
-// Careers
-router.get('/careers', (req, res) => {
-  res.render('get-involved/careers', { 
-    title: 'Careers & Internships - Spread A Smile India',
-    page: 'get-involved',
-    metaDescription: 'Join our team and make a career out of making a difference. Explore current openings and opportunities.'
-  });
-});
-
 module.exports = router;

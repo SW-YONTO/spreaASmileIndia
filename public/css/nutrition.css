@@ -2,12 +2,12 @@
 
 /* CSS Custom Properties */
 :root {
-    --nutrition-primary: #ff6b35;
-    --nutrition-secondary: #f7931e;
-    --nutrition-accent: #e74c3c;
-    --nutrition-light: #ff8c42;
+    --nutrition-primary: #603fee;
+    --nutrition-secondary: #8a6fff;
+    --nutrition-accent: #a78bfa;
+    --nutrition-light: #c4b5fd;
     --nutrition-gradient: linear-gradient(135deg, var(--nutrition-primary), var(--nutrition-secondary));
-    --nutrition-gradient-light: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+    --nutrition-gradient-light: linear-gradient(135deg, rgba(96, 63, 238, 0.1), rgba(138, 111, 255, 0.1));
     --card-bg: #ffffff;
     --border-color: rgba(0, 0, 0, 0.1);
     --text-primary: #2c3e50;
@@ -22,12 +22,12 @@
 
 /* Dark Theme Support */
 [data-theme="dark"] {
-    --nutrition-primary: #ff7a47;
-    --nutrition-secondary: #ffa53f;
-    --nutrition-accent: #ff5757;
-    --nutrition-light: #ff9d57;
+    --nutrition-primary: #8a6fff;
+    --nutrition-secondary: #a78bfa;
+    --nutrition-accent: #c4b5fd;
+    --nutrition-light: #ddd6fe;
     --nutrition-gradient: linear-gradient(135deg, var(--nutrition-primary), var(--nutrition-secondary));
-    --nutrition-gradient-light: linear-gradient(135deg, rgba(255, 122, 71, 0.15), rgba(255, 165, 63, 0.15));
+    --nutrition-gradient-light: linear-gradient(135deg, rgba(138, 111, 255, 0.15), rgba(167, 139, 250, 0.15));
     --card-bg: #1a1a1a;
     --border-color: rgba(255, 255, 255, 0.1);
     --text-primary: #e6e6e6;

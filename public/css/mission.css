@@ -1,9 +1,11 @@
 /* Mission Page Styles */
 
 :root {
-    --mission-primary: #F97316;
-    --mission-secondary: #FB923C;
-    --mission-accent: #FBBF24;
+    --mission-primary: #f0f0f0;
+    --mission-bg-1:#f1f1f1 ;
+    --mission-bg-2:#c7c7c7 ;
+    --mission-secondary: #dadada;
+    --mission-accent: #a78bfa;
     --mission-text: #1F2937;
     --mission-text-light: #6B7280;
     --mission-bg: #FFFFFF;
@@ -12,9 +14,11 @@
 }
 
 [data-theme="dark"] {
-    --mission-primary: #F97316;
-    --mission-secondary: #FB923C;
-    --mission-accent: #FBBF24;
+    --mission-primary: #8a6fff;
+    --mission-secondary: #603fee;
+    --mission-accent: #a78bfa;
+     --mission-bg-1:#343434 ;
+    --mission-bg-2:#292929 ;
     --mission-text: #F9FAFB;
     --mission-text-light: #D1D5DB;
     --mission-bg: #111827;
@@ -25,7 +29,7 @@
 /* Hero Section */
 .mission-hero-section {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, var(--mission-primary) 0%, var(--mission-secondary) 100%);
+    background: linear-gradient(135deg, var(--mission-bg-1) 0%, var(--mission-bg-2) 100%);
     position: relative;
     overflow: hidden;
     color: white;
@@ -106,7 +110,7 @@
     display: block;
     font-size: 3rem;
     font-weight: 700;
-    color: #FBBF24;
+    color: #a78bfa;
     margin-bottom: 8px;
 }
 

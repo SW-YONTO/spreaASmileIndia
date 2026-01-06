@@ -110,30 +110,86 @@ router.get('/events', async (req, res) => {
   try {
     const Event = require('../models/Event');
     
-    // Fetch all published events, sorted by creation date (newest first)
-    const events = await Event.find({ status: 'published' })
-      .sort({ createdAt: -1 })
+    // Get filter parameters from query
+    const { year: filterYear, category: filterCategory, search } = req.query;
+    
+    // Build query for published events
+    let query = { status: 'published' };
+    
+    // Apply year filter if provided
+    if (filterYear && filterYear !== 'all') {
+      query.year = parseInt(filterYear);
+    }
+    
+    // Apply category filter if provided
+    if (filterCategory && filterCategory !== 'all') {
+      query.category = filterCategory;
+    }
+    
+    // Apply search filter if provided
+    if (search && search.trim()) {
+      query.$or = [
+        { title: { $regex: search.trim(), $options: 'i' } },
+        { description: { $regex: search.trim(), $options: 'i' } },
+        { keywords: { $regex: search.trim(), $options: 'i' } }
+      ];
+    }
+    
+    // Fetch events matching query, sorted by year (desc) then date
+    const events = await Event.find(query)
+      .sort({ year: -1, createdAt: -1 })
       .lean();
     
-    // Group events by category
-    const eventsByCategory = {
-      festival: events.filter(e => e.category === 'festival'),
-      national: events.filter(e => e.category === 'national'),
-      wellness: events.filter(e => e.category === 'wellness'),
-      recreation: events.filter(e => e.category === 'recreation'),
-      entertainment: events.filter(e => e.category === 'entertainment'),
-      sports: events.filter(e => e.category === 'sports'),
-      campaign: events.filter(e => e.category === 'campaign'),
-      fundraising: events.filter(e => e.category === 'fundraising'),
-      regular: events.filter(e => e.category === 'regular')
-    };
+    // Group events by year (primary grouping)
+    const eventsByYear = {};
+    events.forEach(event => {
+      const eventYear = event.year || new Date().getFullYear();
+      if (!eventsByYear[eventYear]) {
+        eventsByYear[eventYear] = [];
+      }
+      eventsByYear[eventYear].push(event);
+    });
+    
+    // Get available years and categories for filter dropdowns
+    const availableYears = await Event.getAvailableYears();
+    const eventTypes = await Event.getEventTypes();
+    
+    // Smart filter suggestions - analyze event titles for common patterns
+    const commonEventNames = {};
+    events.forEach(event => {
+      const title = event.title.toLowerCase();
+      // Extract common event names (e.g., "Diwali", "Christmas", "Sports Day")
+      const keywords = ['diwali', 'holi', 'christmas', 'republic day', 'independence day', 
+                       'sports', 'health camp', 'picnic', 'birthday', 'festival', 'yoga'];
+      
+      keywords.forEach(keyword => {
+        if (title.includes(keyword)) {
+          const capitalizedKeyword = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+          commonEventNames[capitalizedKeyword] = (commonEventNames[capitalizedKeyword] || 0) + 1;
+        }
+      });
+    });
+    
+    // Sort by frequency
+    const suggestedFilters = Object.entries(commonEventNames)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([name]) => name);
     
     res.render('programs/events', { 
-      title: 'Events & Campaigns - Spread A Smile India',
+      title: 'Events & Celebrations - Spread A Smile India',
       page: 'programs',
       metaDescription: 'Special events, cultural programs, and celebrations that bring joy and learning to our beneficiaries.',
       events,
-      eventsByCategory
+      eventsByYear,
+      availableYears,
+      categories: eventTypes.categories || [],
+      suggestedFilters,
+      filters: {
+        year: filterYear || 'all',
+        category: filterCategory || 'all',
+        search: search || ''
+      }
     });
   } catch (error) {
     console.error('Error fetching events:', error);
@@ -142,7 +198,11 @@ router.get('/events', async (req, res) => {
       page: 'programs',
       metaDescription: 'Special events, cultural programs, and celebrations that bring joy and learning to our beneficiaries.',
       events: [],
-      eventsByCategory: {}
+      eventsByYear: {},
+      availableYears: [],
+      categories: [],
+      suggestedFilters: [],
+      filters: { year: 'all', category: 'all', search: '' }
     });
   }
 });

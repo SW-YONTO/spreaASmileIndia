@@ -461,9 +461,28 @@
                     <h2><i class="fas fa-calendar"></i> Event Details</h2>
                     
                     <div class="form-group">
+                        <label for="year">Event Year <span class="required">*</span></label>
+                        <select id="year" name="year" required>
+                            <option value="">-- Select Year --</option>
+                            <option value="2025" selected>2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                        </select>
+                        <span class="hint">Select the year when this event happens or happened</span>
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="eventDate">When is this event? <span class="required">*</span></label>
                         <input type="text" id="eventDate" name="eventDate" required 
-                               placeholder="e.g., October 2025, Every Thursday, December 25th">
+                               placeholder="e.g., October, Every Thursday, December 25th">
                         <span class="hint">Date, month, or frequency (e.g., "Monthly", "Every Sunday")</span>
                     </div>
 
@@ -569,6 +588,7 @@
             const title = document.getElementById('title').value.trim();
             const description = document.getElementById('description').value.trim();
             const category = document.querySelector('input[name="category"]:checked');
+            const year = document.getElementById('year').value;
             const eventDate = document.getElementById('eventDate').value.trim();
             
             const errors = [];
@@ -576,7 +596,14 @@
             if (!title) errors.push('Event title is required');
             if (!description) errors.push('Description is required');
             if (!category) errors.push('Please select a category');
+            if (!year) errors.push('Event year is required');
             if (!eventDate) errors.push('Event date is required');
+            
+            // Validate year is within range
+            const yearInt = parseInt(year);
+            if (year && (yearInt < 2000 || yearInt > 2100)) {
+                errors.push('Year must be between 2000 and 2100');
+            }
             
             if (errors.length > 0) {
                 e.preventDefault();

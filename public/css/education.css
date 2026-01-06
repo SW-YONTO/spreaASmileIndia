@@ -435,7 +435,7 @@ body {
 }
 
 .feature-tag.grade-tag {
-    background: linear-gradient(135deg, #F7941D 0%, #ED1C24 100%);
+    background: linear-gradient(135deg, #603fee 0%, #8a6fff 100%);
     color: white;
     font-weight: 600;
     border: none;

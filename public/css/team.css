@@ -1,15 +1,15 @@
 /* Team Page Styles */
 :root {
-    --primary-orange: #F97316;
-    --secondary-orange: #EA580C;
-    --light-orange: #FBBF24;
-    --orange-50: #FFF7ED;
-    --orange-100: #FFEDD5;
-    --orange-200: #FED7AA;
+    --primary-purple: #603fee;
+    --secondary-purple: #8a6fff;
+    --light-purple: #a78bfa;
+    --purple-50: #faf5ff;
+    --purple-100: #f3e8ff;
+    --purple-200: #e9d5ff;
     --text-dark: #1F2937;
     --text-light: #6B7280;
     --white: #FFFFFF;
-    --event-gradient: linear-gradient(135deg, #F7941D 0%, #ED1C24 100%);
+    --event-gradient: linear-gradient(135deg, #603fee 0%, #8a6fff 100%);
 }
 
 /* Placeholder Avatar Styles */
@@ -51,7 +51,7 @@
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #F7941D 0%, #ED1C24 100%);
+    background: linear-gradient(135deg, #603fee 0%, #8a6fff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -66,7 +66,7 @@
 
 /* Hero Section */
 .team-hero-section {
-    background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
     color: white;
     padding: 100px 0;
     position: relative;
@@ -214,11 +214,11 @@
 .team-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    border-color: var(--primary-orange);
+    border-color: var(--primary-purple);
 }
 
 .team-card.featured {
-    border: 3px solid var(--light-orange);
+    border: 3px solid var(--light-purple);
     position: relative;
 }
 
@@ -227,7 +227,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: var(--light-orange);
+    background: var(--light-purple);
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
@@ -279,7 +279,7 @@
 .social-links a {
     width: 40px;
     height: 40px;
-    background: var(--primary-orange);
+    background: var(--primary-purple);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -291,7 +291,7 @@
 
 .social-links a:hover {
     background: white;
-    color: var(--primary-orange);
+    color: var(--primary-purple);
     transform: scale(1.1);
 }
 
@@ -308,7 +308,7 @@
 
 .member-role {
     font-size: 1.1rem;
-    color: var(--primary-orange);
+    color: var(--primary-purple);
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -326,8 +326,8 @@
 }
 
 .achievement-tag, .skill-tag {
-    background: var(--orange-100);
-    color: var(--primary-orange);
+    background: var(--purple-100);
+    color: var(--primary-purple);
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -337,7 +337,7 @@
 /* Section Backgrounds */
 .leadership-section {
     padding: 100px 0;
-    background: var(--orange-50);
+    background: var(--purple-50);
 }
 
 .teachers-section {
@@ -347,7 +347,7 @@
 
 .support-section {
     padding: 100px 0;
-    background: var(--orange-50);
+    background: var(--purple-50);
 }
 
 .helpers-section {
@@ -375,7 +375,7 @@
 
 .helper-card:hover {
     transform: translateY(-5px);
-    border-color: var(--primary-orange);
+    border-color: var(--primary-purple);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
@@ -385,7 +385,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 15px;
-    border: 3px solid var(--orange-200);
+    border: 3px solid var(--purple-200);
 }
 
 .helper-image img {
@@ -408,7 +408,7 @@
 }
 
 .helper-tag {
-    background: var(--primary-orange);
+    background: var(--primary-purple);
     color: white;
     padding: 4px 10px;
     border-radius: 12px;
@@ -418,7 +418,7 @@
 
 /* Join Team Section */
 .join-team-section {
-    background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
     color: white;
     padding: 100px 0;
     text-align: center;
@@ -479,7 +479,7 @@
 
 .btn-white {
     background: white;
-    color: var(--primary-orange);
+    color: var(--primary-purple);
     border: 2px solid white;
 }
 
@@ -498,7 +498,7 @@
 
 .btn-outline-white:hover {
     background: white;
-    color: var(--primary-orange);
+    color: var(--primary-purple);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }

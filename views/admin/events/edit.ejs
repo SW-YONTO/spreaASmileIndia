@@ -490,9 +490,23 @@
                     <h2><i class="fas fa-calendar"></i> Event Details</h2>
                     
                     <div class="form-group">
+                        <label for="year">Event Year <span class="required">*</span></label>
+                        <select id="year" name="year" required>
+                            <option value="">-- Select Year --</option>
+                            <% 
+                            const currentYear = event.year || new Date().getFullYear();
+                            for (let yr = 2020; yr <= 2030; yr++) { 
+                            %>
+                                <option value="<%= yr %>" <%= currentYear == yr ? 'selected' : '' %>><%= yr %></option>
+                            <% } %>
+                        </select>
+                        <span class="hint">Select the year when this event happens or happened</span>
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="eventDate">When is this event? <span class="required">*</span></label>
                         <input type="text" id="eventDate" name="eventDate" required 
-                               placeholder="e.g., October 2025, Every Thursday, December 25th"
+                               placeholder="e.g., October, Every Thursday, December 25th"
                                value="<%= event.eventDate %>">
                         <span class="hint">Date, month, or frequency (e.g., "Monthly", "Every Sunday")</span>
                     </div>
@@ -631,6 +645,7 @@
             const title = document.getElementById('title').value.trim();
             const description = document.getElementById('description').value.trim();
             const category = document.querySelector('input[name="category"]:checked');
+            const year = document.getElementById('year').value;
             const eventDate = document.getElementById('eventDate').value.trim();
             
             const errors = [];
@@ -638,7 +653,14 @@
             if (!title) errors.push('Event title is required');
             if (!description) errors.push('Description is required');
             if (!category) errors.push('Please select a category');
+            if (!year) errors.push('Event year is required');
             if (!eventDate) errors.push('Event date is required');
+            
+            // Validate year is within range
+            const yearInt = parseInt(year);
+            if (year && (yearInt < 2000 || yearInt > 2100)) {
+                errors.push('Year must be between 2000 and 2100');
+            }
             
             if (errors.length > 0) {
                 e.preventDefault();

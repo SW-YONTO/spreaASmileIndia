@@ -259,7 +259,7 @@
 }
 
 .skill-icon.craft { 
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: linear-gradient(135deg, #8a6fff, #7c3aed);
     animation-delay: 2s;
 }
 
@@ -439,11 +439,11 @@
 }
 
 .craft-category .card-icon {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: linear-gradient(135deg, #8a6fff, #7c3aed);
 }
 
 .craft-category .card-category {
-    color: #f59e0b;
+    color: #8a6fff;
 }
 
 .cooking-category .card-icon {

@@ -1,30 +1,30 @@
 /* History Page Styles */
 
 :root {
-    --history-primary: #F97316;
-    --history-secondary: #FB923C;
-    --history-accent: #FBBF24;
+    --history-primary: #603fee;
+    --history-secondary: #8a6fff;
+    --history-accent: #a78bfa;
     --history-text: #1F2937;
     --history-text-light: #6B7280;
     --history-bg: #FFFFFF;
     --history-bg-secondary: #F9FAFB;
     --history-border: #E5E7EB;
     --history-success: #10B981;
-    --history-warning: #F59E0B;
+    --history-warning: #9f7aea;
     --history-info: #3B82F6;
 }
 
 [data-theme="dark"] {
-    --history-primary: #F97316;
-    --history-secondary: #FB923C;
-    --history-accent: #FBBF24;
+    --history-primary: #603fee;
+    --history-secondary: #8a6fff;
+    --history-accent: #a78bfa;
     --history-text: #F9FAFB;
     --history-text-light: #D1D5DB;
     --history-bg: #111827;
     --history-bg-secondary: #1F2937;
     --history-border: #374151;
     --history-success: #34D399;
-    --history-warning: #FBBF24;
+    --history-warning: #a78bfa;
     --history-info: #60A5FA;
 }
 
@@ -118,7 +118,7 @@
     display: block;
     font-size: 3rem;
     font-weight: 700;
-    color: #FBBF24;
+    color: #a78bfa;
     margin-bottom: 8px;
 }
 
@@ -365,7 +365,7 @@
 
 .timeline-marker.milestone {
     border-color: var(--history-accent);
-    background: linear-gradient(135deg, var(--history-accent), #F59E0B);
+    background: linear-gradient(135deg, var(--history-accent), #9f7aea);
     color: white;
 }
 
@@ -565,7 +565,7 @@
 }
 
 .legend-color.programs {
-    background: linear-gradient(135deg, var(--history-accent), #F59E0B);
+    background: linear-gradient(135deg, var(--history-accent), #9f7aea);
 }
 
 .chart-container {
@@ -591,7 +591,7 @@
 }
 
 .chart-bar.milestone .bar-group {
-    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 10px 30px rgba(159, 122, 234, 0.3);
 }
 
 .chart-bar.current .bar-group {
@@ -632,7 +632,7 @@
 }
 
 .bar.programs {
-    background: linear-gradient(to top, var(--history-accent), #F59E0B);
+    background: linear-gradient(to top, var(--history-accent), #9f7aea);
 }
 
 .bar:hover::after {

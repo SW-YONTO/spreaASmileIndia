@@ -80,6 +80,17 @@ const EventSchema = new mongoose.Schema({
   }],
   
   // Event Details
+  year: {
+    type: Number,
+    required: [true, 'Please specify event year'],
+    min: [2000, 'Year must be after 2000'],
+    max: [2100, 'Year must be before 2100'],
+    validate: {
+      validator: Number.isInteger,
+      message: 'Year must be a valid integer'
+    }
+  },
+  
   eventDate: {
     type: String, // e.g., "October/November", "January 26th", "Monthly"
     required: [true, 'Please specify event date or frequency']
@@ -183,6 +194,8 @@ const EventSchema = new mongoose.Schema({
 
 // Indexes for better query performance
 EventSchema.index({ category: 1, status: 1 });
+EventSchema.index({ year: -1, createdAt: -1 }); // Primary index for year-based queries
+EventSchema.index({ year: 1, category: 1, status: 1 }); // Compound index for year + category filtering
 EventSchema.index({ createdAt: -1 });
 EventSchema.index({ title: 'text', description: 'text', keywords: 'text' });
 
@@ -230,12 +243,39 @@ EventSchema.methods.getGalleryUrls = function(options = {}) {
 
 // Static method to get events by category
 EventSchema.statics.getByCategory = function(category) {
-  return this.find({ category, status: 'published' }).sort({ createdAt: -1 });
+  return this.find({ category, status: 'published' }).sort({ year: -1, createdAt: -1 });
+};
+
+// Static method to get events by year
+EventSchema.statics.getByYear = function(year) {
+  return this.find({ year, status: 'published' }).sort({ createdAt: -1 });
+};
+
+// Static method to get all unique years with events
+EventSchema.statics.getAvailableYears = async function() {
+  const years = await this.distinct('year', { status: 'published' });
+  return years.sort((a, b) => b - a); // Descending order (newest first)
+};
+
+// Static method to get all unique event types/names for filtering
+EventSchema.statics.getEventTypes = async function() {
+  const types = await this.aggregate([
+    { $match: { status: 'published' } },
+    { $group: { _id: null, categories: { $addToSet: '$category' }, titles: { $addToSet: '$title' } } }
+  ]);
+  
+  if (types.length > 0) {
+    return {
+      categories: types[0].categories.sort(),
+      titles: types[0].titles.sort()
+    };
+  }
+  return { categories: [], titles: [] };
 };
 
 // Static method to get featured events
 EventSchema.statics.getFeatured = function() {
-  return this.find({ isFeatured: true, status: 'published' }).sort({ createdAt: -1 }).limit(3);
+  return this.find({ isFeatured: true, status: 'published' }).sort({ year: -1, createdAt: -1 }).limit(3);
 };
 
 // Pre-save middleware to format data

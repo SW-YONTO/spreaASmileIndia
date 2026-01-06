@@ -52,10 +52,10 @@ const seoConfig = {
     keywords: 'ngo team, spread a smile staff, ngo volunteers, delhi ngo team'
   },
 
-  '/about/partners': {
-    title: 'Our Partners & Supporters - Building Change Together',
-    description: 'Proud partnerships and collaborations that help Spread A Smile India reach more children and families. Join us as a partner in transforming lives.',
-    keywords: 'ngo partnerships, corporate social responsibility, ngo collaborations delhi'
+  '/about/contributors': {
+    title: 'Our contributors & Supporters - Building Change Together',
+    description: 'Proud contributorships and collaborations that help Spread A Smile India reach more children and families. Join us as a partner in transforming lives.',
+    keywords: 'ngo contributorships, corporate social responsibility, ngo collaborations delhi'
   },
 
   // Programs Pages
@@ -67,7 +67,7 @@ const seoConfig = {
 
   '/programs/education': {
     title: 'Free Education for Street Children | Best Education NGO in Delhi',
-    description: 'Free education program by Spread A Smile India helping 200+ street children in Delhi. School partnerships, qualified teachers, learning centers in Munirka. Enroll children in formal schools.',
+    description: 'Free education program by Spread A Smile India helping 200+ street children in Delhi. School contributorships, qualified teachers, learning centers in Munirka. Enroll children in formal schools.',
     keywords: 'free education delhi, street children education, best education ngo delhi, free schooling delhi, education for poor children, ngo education program, free school admission delhi, street children school, education charity india'
   },
 
@@ -116,7 +116,7 @@ const seoConfig = {
 
   '/impact/testimonials': {
     title: 'Testimonials - Voices from Our Community',
-    description: 'Hear from those whose lives have been transformed: Students, parents, volunteers, and partners share their experiences with Spread A Smile India.',
+    description: 'Hear from those whose lives have been transformed: Students, parents, volunteers, and contributors share their experiences with Spread A Smile India.',
     keywords: 'testimonials, reviews, feedback, beneficiary voices, community feedback'
   },
 
@@ -129,8 +129,8 @@ const seoConfig = {
   // Get Involved Pages
   '/get-involved': {
     title: 'Get Involved - Volunteer, Donate, Partner with Us',
-    description: 'Join Spread A Smile India in transforming lives. Volunteer opportunities, donation options, corporate partnerships, and career opportunities. Make a difference today!',
-    keywords: 'volunteer delhi, donate to ngo, ngo partnership, support ngo, make a difference'
+    description: 'Join Spread A Smile India in transforming lives. Volunteer opportunities, donation options, corporate contributorships, and career opportunities. Make a difference today!',
+    keywords: 'volunteer delhi, donate to ngo, ngo contributorship, support ngo, make a difference'
   },
 
   '/get-involved/volunteer': {
@@ -145,10 +145,10 @@ const seoConfig = {
     keywords: 'donate to ngo delhi, online donation india, 80g donation, support ngo, charity donation india, donate to best ngo, help street children, ngo donation online, tax benefit donation, donate education'
   },
 
-  '/get-involved/partners': {
-    title: 'Partner With Us - CSR & Corporate Partnerships',
-    description: 'Corporate Social Responsibility partnerships with Spread A Smile India. CSR opportunities, employee engagement programs, and long-term collaborations for social impact.',
-    keywords: 'csr partnership, corporate partnership ngo, csr activities delhi, employee engagement programs'
+  '/get-involved/contributors': {
+    title: 'Partner With Us - CSR & Corporate contributorships',
+    description: 'Corporate Social Responsibility contributorships with Spread A Smile India. CSR opportunities, employee engagement programs, and long-term collaborations for social impact.',
+    keywords: 'csr contributorship, corporate contributorship ngo, csr activities delhi, employee engagement programs'
   },
 
   '/get-involved/careers': {

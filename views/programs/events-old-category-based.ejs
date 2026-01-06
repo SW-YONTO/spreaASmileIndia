@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'Events & Celebrations - SASI NGO' %></title>
+    <link rel="stylesheet" href="/css/events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="events-main">
+        <!-- Hero Section -->
+        <section class="events-hero">
+            <div class="hero-bg">
+                <div class="hero-particles"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Events & Celebrations</span>
+                    </div>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                        Celebrating Life <span class="text-gradient">Together</span>
+                    </h1>
+                    <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
+                        From traditional festivals to fun outings, we create memorable experiences that bring joy, 
+                        build community, and celebrate the cultural richness of our children's lives.
+                    </p>
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat">
+                            <div class="stat-number"><%= (typeof events !== 'undefined' && events) ? events.length : 0 %>+</div>
+                            <div class="stat-label">Total Events</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Participants</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number"><%= (typeof eventsByCategory !== 'undefined' && eventsByCategory) ? Object.keys(eventsByCategory).filter(k => eventsByCategory[k].length > 0).length : 0 %></div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" data-aos="fade-left" data-aos-delay="500">
+                    <div class="visual-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Building Memories</h3>
+                        <p>Creating lasting bonds through shared celebrations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%
+        // Section configuration with icons and titles
+        const sectionConfig = {
+            festival: {
+                icon: 'fa-star',
+                badge: 'Festival Celebrations',
+                title: 'Traditional Festivals',
+                description: 'Celebrating India\'s rich cultural heritage through traditional festivals and ceremonies.',
+                sectionClass: 'festival-events-section',
+                cardClass: 'festival-card'
+            },
+            national: {
+                icon: 'fa-flag',
+                badge: 'National Celebrations',
+                title: 'Patriotic Events',
+                description: 'Instilling patriotism and national pride through important national celebrations.',
+                sectionClass: 'national-events-section',
+                cardClass: 'national-card'
+            },
+            wellness: {
+                icon: 'fa-leaf',
+                badge: 'Health & Wellness',
+                title: 'Wellness Programs',
+                description: 'Promoting physical and mental wellness through yoga, meditation, and health awareness.',
+                sectionClass: 'wellness-events-section',
+                cardClass: 'wellness-card'
+            },
+            recreation: {
+                icon: 'fa-water',
+                badge: 'Fun Activities',
+                title: 'Recreation & Entertainment',
+                description: 'Creating joyful memories through exciting outings and entertainment activities.',
+                sectionClass: 'fun-activities-section',
+                cardClass: 'fun-card'
+            },
+            entertainment: {
+                icon: 'fa-film',
+                badge: 'Entertainment',
+                title: 'Cultural & Entertainment',
+                description: 'Movies, shows, and cultural performances that entertain and inspire.',
+                sectionClass: 'fun-activities-section',
+                cardClass: 'fun-card'
+            },
+            sports: {
+                icon: 'fa-trophy',
+                badge: 'Sports Events',
+                title: 'Athletic Competitions',
+                description: 'Promoting fitness and team spirit through competitive sports and games.',
+                sectionClass: 'fun-activities-section',
+                cardClass: 'fun-card'
+            },
+            campaign: {
+                icon: 'fa-bullhorn',
+                badge: 'Special Campaigns',
+                title: 'Awareness Campaigns',
+                description: 'Targeted initiatives for specific causes and community awareness.',
+                sectionClass: 'special-campaigns-section',
+                cardClass: 'campaign-card'
+            },
+            fundraising: {
+                icon: 'fa-hand-holding-heart',
+                badge: 'Fundraising Events',
+                title: 'Charity Events',
+                description: 'Special events that raise awareness and funds for our programs.',
+                sectionClass: 'fundraising-events-section',
+                cardClass: 'fundraising-card'
+            },
+            regular: {
+                icon: 'fa-calendar-check',
+                badge: 'Regular Activities',
+                title: 'Recurring Events',
+                description: 'Weekly and monthly activities that form the heart of our community.',
+                sectionClass: 'regular-events-section',
+                cardClass: 'regular-card'
+            }
+        };
+        %>
+
+        <% if (typeof eventsByCategory !== 'undefined' && eventsByCategory) { %>
+            <% Object.keys(sectionConfig).forEach((category, index) => { %>
+                <% const config = sectionConfig[category]; %>
+                <% const categoryEvents = eventsByCategory[category] || []; %>
+                
+                <% if (categoryEvents.length > 0) { %>
+                    <section class="<%= config.sectionClass %>">
+                        <div class="container">
+                            <div class="section-header">
+                                <div class="section-badge" data-aos="fade-up">
+                                    <i class="fas <%= config.icon %>"></i>
+                                    <span><%= config.badge %></span>
+                                </div>
+                                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100"><%= config.title %></h2>
+                                <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+                                    <%= config.description %>
+                                </p>
+                            </div>
+
+                            <div class="events-grid">
+                                <% categoryEvents.forEach((event, eventIndex) => { %>
+                                    <%
+                                    // Apply ImageKit transformations to poster URL
+                                    let optimizedPosterUrl = event.poster?.url || '';
+                                    if (optimizedPosterUrl && optimizedPosterUrl.includes('ik.imagekit.io')) {
+                                        const parts = optimizedPosterUrl.split('ik.imagekit.io/');
+                                        if (parts.length === 2) {
+                                            const [baseUrl, pathWithId] = parts;
+                                            const pathParts = pathWithId.split('/');
+                                            const imageKitId = pathParts[0];
+                                            const filePath = '/' + pathParts.slice(1).join('/');
+                                            optimizedPosterUrl = `${baseUrl}ik.imagekit.io/${imageKitId}/tr:w-600,q-85,f-webp${filePath}`;
+                                        }
+                                    }
+
+                                    // Get icon based on category
+                                    const categoryIcons = {
+                                        'festival': 'fa-fire',
+                                        'national': 'fa-flag-usa',
+                                        'wellness': 'fa-leaf',
+                                        'recreation': 'fa-water',
+                                        'entertainment': 'fa-film',
+                                        'sports': 'fa-trophy',
+                                        'campaign': 'fa-bullhorn',
+                                        'fundraising': 'fa-hand-holding-heart',
+                                        'regular': 'fa-calendar-alt'
+                                    };
+                                    const iconClass = categoryIcons[event.category] || 'fa-calendar-alt';
+                                    const features = event.features || [];
+                                    
+                                    // Check if event has video
+                                    const hasVideo = event.video && event.video.url;
+                                    const videoUrl = hasVideo ? event.video.url : '';
+                                    %>
+
+                                    <div class="event-card <%= config.cardClass %> <%= hasVideo ? 'has-video' : '' %>" 
+                                         data-event-id="<%= event._id %>" 
+                                         <% if (hasVideo) { %>data-video-url="<%= videoUrl %>" onclick="playEventVideo(this)"<% } %>
+                                         data-aos="fade-up" data-aos-offset="30" data-aos-delay="<%= eventIndex * 50 %>" data-aos-duration="400">
+                                        <div class="event-image">
+                                            <% if (optimizedPosterUrl) { %>
+                                                <img src="<%= optimizedPosterUrl %>" alt="<%= event.title %>" loading="lazy">
+                                            <% } else { %>
+                                                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); display: flex; align-items: center; justify-content: center;">
+                                                    <i class="fas <%= iconClass %>" style="font-size: 4rem; color: white; opacity: 0.5;"></i>
+                                                </div>
+                                            <% } %>
+                                            <div class="event-overlay">
+                                                <div class="event-icon">
+                                                    <i class="fas <%= iconClass %>"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-category"><%= event.type || event.category %></div>
+                                            <h3><%= event.title %></h3>
+                                            <p><%= event.description %></p>
+                                            
+                                            <% if (features && features.length > 0) { %>
+                                                <div class="event-features">
+                                                    <% features.slice(0, 3).forEach(feature => { %>
+                                                        <span class="feature-tag"><%= feature %></span>
+                                                    <% }) %>
+                                                </div>
+                                            <% } %>
+                                            
+                                            <div class="event-details">
+                                                <div class="detail">
+                                                    <i class="fas fa-calendar"></i>
+                                                    <span><%= event.eventDate %></span>
+                                                </div>
+                                                <div class="detail">
+                                                    <i class="fas fa-users"></i>
+                                                    <span><%= event.participants %></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </section>
+                <% } %>
+            <% }) %>
+        <% } else { %>
+            <section class="no-events-section">
+                <div class="container">
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-times"></i>
+                        <h2>No Events Available</h2>
+                        <p>Check back soon for upcoming events and celebrations!</p>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+
+        <!-- Call to Action -->
+        <section class="events-cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <div class="cta-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h2>Support Our Events</h2>
+                    <p>Help us organize more memorable events and celebrations for our children. Your support brings joy and creates lasting memories.</p>
+                    <div class="cta-buttons">
+                        <a href="/get-involved/donate" class="btn-cta primary">
+                            <i class="fas fa-gift"></i>
+                            <span>Sponsor an Event</span>
+                        </a>
+                        <a href="/get-involved/volunteer" class="btn-cta secondary">
+                            <i class="fas fa-users"></i>
+                            <span>Volunteer Helper</span>
+                        </a>
+                        <a href="/contact" class="btn-cta outline">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get Involved</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal" style="display: none;">
+        <div class="video-modal-overlay" onclick="closeVideoModal()"></div>
+        <div class="video-modal-content">
+            <button class="video-close-btn" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="modalVideo" controls autoplay style="width: 100%; max-width: 900px; border-radius: 12px;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <style>
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .video-modal-content {
+            position: relative;
+            z-index: 10001;
+            padding: 20px;
+            max-width: 95%;
+        }
+
+        .video-close-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 10002;
+        }
+
+        .video-close-btn:hover {
+            transform: scale(1.1);
+            background: #f44336;
+            color: white;
+        }
+
+        .video-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .video-play-icon:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: white;
+        }
+
+        .video-play-icon i {
+            font-size: 24px;
+            color: #8b5cf6;
+            margin-left: 4px;
+        }
+
+        .event-card.has-video {
+            cursor: pointer;
+        }
+
+        .event-card.has-video .event-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .event-card.has-video:hover .event-image::after {
+            opacity: 1;
+        }
+
+        .event-card.has-video .event-image::before {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #8b5cf6;
+            z-index: 11;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .event-card.has-video:hover .event-image::before {
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        // Video Modal Functions
+        function playEventVideo(element) {
+            const videoUrl = element.getAttribute('data-video-url');
+            if (videoUrl) {
+                openVideoModal(videoUrl);
+            }
+        }
+
+        function openVideoModal(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            const source = video.querySelector('source');
+            
+            source.src = videoUrl;
+            video.load();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            video.pause();
+            video.currentTime = 0;
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // Force refresh animations on page load
+        window.addEventListener('load', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        });
+
+        // Image loading fallback
+        document.querySelectorAll('.event-image img, .gallery-item img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.background = 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)';
+                this.style.display = 'none';
+                this.parentElement.style.background = 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)';
+            });
+        });
+    </script>
+</body>
+</html>

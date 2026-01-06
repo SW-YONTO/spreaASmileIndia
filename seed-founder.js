@@ -146,7 +146,7 @@ Her vision remains unwavering: a future where every child born in poverty can br
         },
         healthcare: {
             title: 'Comprehensive Healthcare',
-            description: 'Sangeeta established regular health camps in partnership with Rotary Clubs and medical professionals, providing free health checkups, blood tests, ECGs, dental care, and preventive healthcare education. During COVID-19, she distributed food packets to 600+ families and ensured continuous medical support. Her holistic approach treats physical and mental health as fundamental rights, not privileges.',
+            description: 'Sangeeta established regular health camps in contributorship with Rotary Clubs and medical professionals, providing free health checkups, blood tests, ECGs, dental care, and preventive healthcare education. During COVID-19, she distributed food packets to 600+ families and ensured continuous medical support. Her holistic approach treats physical and mental health as fundamental rights, not privileges.',
             impactNumber: '180+'
         }
     },
@@ -165,7 +165,7 @@ Her vision remains unwavering: a future where every child born in poverty can br
         {
             value: 'Community',
             icon: 'fas fa-users',
-            description: 'Building bridges between different sections of society, creating partnerships that strengthen the support system for children.'
+            description: 'Building bridges between different sections of society, creating contributorships that strengthen the support system for children.'
         },
         {
             value: 'Education First',
@@ -233,7 +233,7 @@ Every child we help is someone's hope realized. They are not just statistics or 
 
 Twenty years ago, I made a decision to lose myself in the service of others. Today, I have found myself in the smiles of over 300 children who now have a chance at a dignified life. I have found purpose in the tears of mothers who can now send their children to school instead of begging.
 
-The work is far from over. There are still countless children on our streets who need hope, education, and care. But I am not alone in this journey. I am blessed to have volunteers, donors, partners, and well-wishers who believe in this mission as deeply as I do.
+The work is far from over. There are still countless children on our streets who need hope, education, and care. But I am not alone in this journey. I am blessed to have volunteers, donors, contributors, and well-wishers who believe in this mission as deeply as I do.
 
 I invite you to join this beautiful journey of transformation. Whether you volunteer for an hour, donate a rupee, or simply spread awareness, you become part of a child's success story. Together, we can ensure that every child gets the chance to spread their own smile.
 

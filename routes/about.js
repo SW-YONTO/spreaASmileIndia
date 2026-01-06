@@ -113,12 +113,4 @@ router.get('/team', async (req, res) => {
   }
 });
 
-// Partners & Collaborations
-router.get('/partners', (req, res) => {
-  res.render('about/partners', { 
-    page: 'about'
-    // SEO middleware automatically injects title, metaDescription, keywords
-  });
-});
-
 module.exports = router;

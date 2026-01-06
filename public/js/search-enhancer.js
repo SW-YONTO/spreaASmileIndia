@@ -520,7 +520,7 @@ class SearchEnhancer {
             {
                 type: 'page',
                 title: 'Get Involved',
-                description: 'Join us in our mission through donations, volunteering, or partnerships',
+                description: 'Join us in our mission through donations, volunteering, or contributorships',
                 url: '/get-involved',
                 keywords: ['donate', 'volunteer', 'partner', 'support', 'help']
             },

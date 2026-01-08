@@ -1,5 +1,6 @@
 const Program = require('../models/Program');
 const Admin = require('../models/Admin');
+const { uploadToImageKit, deleteFromImageKit } = require('../config/imagekit');
 
 // Get all programs
 exports.getAllPrograms = async (req, res) => {
@@ -56,6 +57,8 @@ exports.createProgram = async (req, res) => {
     try {
         const { title, description, shortDescription, category, icon, order } = req.body;
         
+        console.log('📝 Creating program:', { title, category, hasFile: !!req.file });
+        
         // Generate slug from title
         const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
         
@@ -63,10 +66,31 @@ exports.createProgram = async (req, res) => {
         const pageUrl = `/programs/${category}`;
         
         // Default image
-        const defaultImage = {
+        let programImage = {
             url: 'https://ik.imagekit.io/l15cczdgu/Assets/logo.png?updatedAt=1761389196069',
             alt: title
         };
+
+        // Handle image upload if provided
+        if (req.file) {
+            const fileName = `${slug}-${Date.now()}.${req.file.originalname.split('.').pop()}`;
+            const uploadResult = await uploadToImageKit(
+                req.file.buffer,
+                fileName,
+                `programs/${category}`
+            );
+
+            if (uploadResult.success) {
+                programImage = {
+                    url: uploadResult.url,
+                    fileId: uploadResult.fileId,
+                    alt: title
+                };
+                console.log('✅ Program image uploaded:', uploadResult.url);
+            } else {
+                console.error('❌ Failed to upload image:', uploadResult.error);
+            }
+        }
 
         const program = new Program({
             title,
@@ -77,13 +101,14 @@ exports.createProgram = async (req, res) => {
             icon,
             order: order ? parseInt(order) : 1,
             pageUrl,
-            image: defaultImage,
+            image: programImage,
             highlights: [],
             stats: [],
             isActive: true
         });
 
         await program.save();
+        console.log('✅ Program created successfully:', program._id);
         res.redirect('/admin/programs');
     } catch (error) {
         console.error('Error creating program:', error);
@@ -142,6 +167,7 @@ exports.updateProgram = async (req, res) => {
         const { title, description, shortDescription, category, icon, order } = req.body;
         
         console.log('📝 Update request body:', req.body);
+        console.log('📷 Has new image:', !!req.file);
         
         // Check if required fields are present
         if (!title || !description || !shortDescription || !category || !icon) {
@@ -180,6 +206,33 @@ exports.updateProgram = async (req, res) => {
             order: order ? parseInt(order) : 1,
             pageUrl
         };
+
+        // Handle new image upload if provided
+        if (req.file) {
+            const fileName = `${slug}-${Date.now()}.${req.file.originalname.split('.').pop()}`;
+            const uploadResult = await uploadToImageKit(
+                req.file.buffer,
+                fileName,
+                `programs/${category}`
+            );
+
+            if (uploadResult.success) {
+                // Delete old image from ImageKit if it exists and has fileId
+                if (existingProgram.image?.fileId) {
+                    console.log('🗑️  Deleting old image:', existingProgram.image.fileId);
+                    await deleteFromImageKit(existingProgram.image.fileId);
+                }
+
+                updateData.image = {
+                    url: uploadResult.url,
+                    fileId: uploadResult.fileId,
+                    alt: title
+                };
+                console.log('✅ New program image uploaded:', uploadResult.url);
+            } else {
+                console.error('❌ Failed to upload new image:', uploadResult.error);
+            }
+        }
 
         console.log('✅ Updating program with:', updateData);
         await Program.findByIdAndUpdate(req.params.id, updateData, { new: true });

@@ -45,6 +45,7 @@ const programSchema = new mongoose.Schema({
             type: String,
             required: true
         },
+        fileId: String,
         alt: String
     },
     isActive: {

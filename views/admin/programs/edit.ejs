@@ -173,6 +173,27 @@
             transition: all 0.3s;
         }
 
+        .form-group input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="file"]::-webkit-file-upload-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            margin-right: 12px;
+        }
+
+        .form-group input[type="file"]::-webkit-file-upload-button:hover {
+            opacity: 0.9;
+        }
+
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
@@ -344,7 +365,7 @@
                 </div>
             </div>
 
-            <form action="/admin/programs/<%= program._id %>/edit" method="POST" class="form-container">
+            <form action="/admin/programs/<%= program._id %>/edit" method="POST" enctype="multipart/form-data" class="form-container">
                 
                 <!-- Basic Information -->
                 <div class="form-section">
@@ -371,6 +392,19 @@
                                   placeholder="Brief description for cards..."
                                   maxlength="200"><%= program.shortDescription %></textarea>
                         <span class="hint">Brief description shown on cards (max 200 characters)</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Program Image</label>
+                        <% if (program.image && program.image.url) { %>
+                            <div style="margin-bottom: 12px;">
+                                <img src="<%= program.image.url %>" alt="<%= program.title %>" 
+                                     style="max-width: 200px; border-radius: 8px; border: 2px solid var(--border);">
+                                <p style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">Current Image</p>
+                            </div>
+                        <% } %>
+                        <input type="file" id="image" name="image" accept="image/*">
+                        <span class="hint">Upload a new image to replace the current one (leave empty to keep current image)</span>
                     </div>
                 </div>
 

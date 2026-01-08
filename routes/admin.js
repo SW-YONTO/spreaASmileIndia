@@ -47,9 +47,9 @@ router.post('/education/:id/delete', educationController.deleteProgram);
 // Programs Management (Education, Health, Nutrition, Events pages)
 router.get('/programs', programsController.getAllPrograms);
 router.get('/programs/create', programsController.showCreateForm);
-router.post('/programs/create', programsController.createProgram);
+router.post('/programs/create', uploadSingleImage, programsController.createProgram);
 router.get('/programs/:id/edit', programsController.showEditForm);
-router.post('/programs/:id/edit', programsController.updateProgram);
+router.post('/programs/:id/edit', uploadSingleImage, programsController.updateProgram);
 router.post('/programs/:id/delete', programsController.deleteProgram);
 
 // Founder Profile Management

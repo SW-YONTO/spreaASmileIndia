@@ -103,7 +103,7 @@ const indexRoutes = require('./routes/index');
 const aboutRoutes = require('./routes/about');
 const programsRoutes = require('./routes/programs');
 const impactRoutes = require('./routes/impact');
-const getInvolvedRoutes = require('./routes/get-involved');
+const partnerRoutes = require('./routes/partner');
 const mediaRoutes = require('./routes/media');
 const contactRoutes = require('./routes/contact');
 const footerPagesRoutes = require('./routes/footer-pages');
@@ -117,7 +117,7 @@ app.use('/', indexRoutes);
 app.use('/about', aboutRoutes);
 app.use('/programs', programsRoutes);
 app.use('/impact', impactRoutes);
-app.use('/get-involved', getInvolvedRoutes);
+app.use('/partner', partnerRoutes);
 app.use('/media', mediaRoutes);
 app.use('/contact', contactRoutes);
 app.use('/candle-shop', candleShopRoutes); // Candle e-commerce section

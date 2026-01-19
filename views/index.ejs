@@ -2,6 +2,7 @@
 
 <!-- Add CSS Links -->
 <link rel="stylesheet" href="/css/landing.css">
+<link rel="stylesheet" href="/css/before-after-slider.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -52,7 +53,8 @@
                      loading="lazy">
                 <div class="slide-overlay">
                     <div class="hero-content">
-                        <h1 class="hero-title" data-aos="fade-up">Women Empowerment</h1>
+                        <h1 class="hero-title" data-aos="fade-up">Empowering Women</h1>
+                        <h3 class="hero-title" data-aos="fade-up"> Strengthening Communities</h3>
                         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
                             Empowering women through skill development, vocational training, and financial independence programs for a brighter future.
                         </p>
@@ -85,7 +87,7 @@
                     <div class="hero-content">
                         <h1 class="hero-title" data-aos="fade-up">TEDx Talk</h1>
                         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                            Hope and Awakening 
+                           Sharing lived stories of resilience, education, and hope.
                         </p>
                         <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
                             <a href="/impact" class="btn btn-primary btn-hero">
@@ -131,16 +133,16 @@
 <section class="impact-section" id="impactSection">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Our Impact</h2>
+            <h2 class="section-title">Lives We’ve Touched</h2>
             <p class="section-subtitle">Every number tells a story of transformation and hope</p>
         </div>
         
         <div class="impact-grid">
             <%- include('components/impact-card', {
                 icon: 'fas fa-heart',
-                number: '90',
+                number: '1269',
                 suffix: '+',
-                label: 'Lives Transformed',
+                label: 'Lives Impacted',
                 description: 'Street children provided with education and care',
                 color: 'blue',
                 progress: 85,
@@ -150,7 +152,7 @@
             
             <%- include('components/impact-card', {
                 icon: 'fas fa-graduation-cap',
-                number: '200',
+                number: '327',
                 suffix: '+',
                 label: 'Children in School',
                 description: 'Currently enrolled in formal education',
@@ -162,9 +164,9 @@
             
             <%- include('components/impact-card', {
                 icon: 'fas fa-female',
-                number: '95',
+                number: '696',
                 suffix: '',
-                label: 'Women Empowerment',
+                label: 'Women Empowered Through Skill & Education',
                 description: 'Empowered through skill development programs',
                 color: 'orange',
                 progress: 78,
@@ -176,7 +178,7 @@
                 icon: 'fas fa-briefcase',
                 number: '108',
                 suffix: '',
-                label: 'Placements',
+                label: '',
                 description: 'Successful job placements and career opportunities',
                 color: 'purple',
                 progress: 88,
@@ -200,8 +202,8 @@
                 icon: 'fas fa-laptop',
                 number: '156',
                 suffix: '',
-                label: 'Computer Students',
-                description: 'Students trained in computer literacy and digital skills',
+                label: 'Free Computer Education & Certification',
+                description: 'Providing free basic and advanced computer education to children and community members, with certification from Spread a Smile India.',
                 color: 'green',
                 progress: 82,
                 delay: 600,
@@ -216,35 +218,37 @@
     <div class="container">
         <div class="about-content">
             <div class="about-text" data-aos="fade-right">
-                <h2 class="section-title">Know About Spread A Smile India and How We Are Different ?</h2>
+                <h2 class="section-title">Who We Are & What Makes Us Different</h2>
                 <div class="about-description">
                     <p>
-                        Since 2005, Spread A Smile India has transformed lives through education, healthcare, and empowerment. Founded by Sangita Mehra, we believe every child can break the cycle of poverty through education and opportunity.
+                        Since 2005, Spread a Smile India has been working at the grassroots to create lasting change through education and empowerment. Founded by Sangita Mehra, the organisation is rooted in lived experience and the belief that every child deserves the opportunity to learn, grow, and thrive.
                     </p>
                     <p>
-                        We work with marginalized communities in Delhi, providing comprehensive support from nutrition to skill development. Our mission: transforming lives "from streets to classrooms" while empowering families for sustainable change.
+                        We work with marginalized communities in Delhi, providing holistic support that goes beyond classrooms—combining education with nutrition, skill development, emotional well-being, and family empowerment.
+                    </p>
+                    <p>
+                        <strong>Why we exist:</strong> Because education is not just about schooling, but about dignity, independence, and breaking cycles of poverty.
+                    </p>
+                    <p>
+                        Our mission is to transform lives from streets to classrooms and enable families and communities to build self-reliant futures.
                     </p>
                 </div>
                 <div class="about-features">
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>Changing street people's lives through education and care</span>
+                        <span>Supporting underprivileged children and families through education and care</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>Covering 7+ traffic signals across Delhi NCR</span>
+                        <span>Reaching vulnerable communities across 7+ traffic signals in Delhi NCR</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>Helping women by providing them financial stability</span>
+                        <span>Enabling women towards financial independence</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>Teaching students new skills for better opportunities</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Providing uniform learning and skill development centers with qualified teachers</span>
+                        <span>Equipping youth with life and skill-based learning for better futures</span>
                     </div>
                 </div>
                 <a href="/about" class="btn btn-primary">
@@ -279,8 +283,8 @@
 <section class="transformation-section" id="transformationSection">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">How We Transform Lives</h2>
-            <p class="section-subtitle">From street corners to school benches - helping destitute children choose education over begging</p>
+            <h2 class="section-title">Lives Transformed Through Care & Education</h2>
+            <p class="section-subtitle">From street corners to classrooms - helping destitute children choose education over begging</p>
         </div>
         
         <div class="transformation-grid">
@@ -317,6 +321,30 @@
                 caption: 'Comprehensive care for holistic development',
                 delay: 400
             }) %>
+            
+            <%- include('components/before-after-slider-card', {
+                beforeImage: 'https://ik.imagekit.io/l15cczdgu/transformation/transformation3.jpg?updatedAt=1767690217713',
+                afterImage: 'https://ik.imagekit.io/l15cczdgu/transformation/IMG-20251126-WA0541.jpg',
+                beforeLabel: 'Before',
+                afterLabel: 'Today' ,
+                beforeAlt: 'Before transformation',
+                afterAlt: 'After transformation',
+                title: 'Real Transformation',
+                caption: 'See the life-changing impact of our programs',
+                delay: 500
+            }) %>
+              <%- include('components/before-after-slider-card', {
+                beforeImage: 'https://ik.imagekit.io/l15cczdgu/transformation/transformation1.jpg',
+                afterImage: 'https://ik.imagekit.io/l15cczdgu/transformation/IMG-20251126-WA0640.jpg',
+                beforeLabel: 'Before',
+                afterLabel: 'Today',
+                beforeAlt: 'Before transformation',
+                afterAlt: 'After transformation',
+                title: 'Real Transformation',
+                caption: 'See the life-changing impact of our programs',
+                delay: 500
+            }) %>
+            
         </div>
     </div>
 </section>
@@ -325,7 +353,7 @@
 <section class="feeds-section" id="feedsSection">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Stories of Change</h2>
+            <h2 class="section-title">Real Stories. Real Change.</h2>
             <p class="section-subtitle">Real stories, real impact - follow our journey</p>
         </div>
         
@@ -397,69 +425,11 @@
 
 
 
-<!-- Our Family (Team) Section -->
-<section class="team-section" id="teamSection">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Our Family</h2>
-            <p class="section-subtitle">Meet the passionate hearts driving change in our community</p>
-        </div>
-        
-        <div class="team-grid">
-            <%- include('components/team-card', {
-                image: '/src/images/team/sangita-mehra.webp',
-                name: 'Sangita Mehra',
-                role: 'Founder & Director',
-                bio: 'Former fashion designer from Mehrasons Jewellers family who gave up her business to transform street children\'s lives through education since 2005.',
-                social: {
-                    instagram: 'https://instagram.com/sangitamehra1',
-                    linkedin: '#'
-                },
-                delay: 100
-            }) %>
-            
-            <%- include('components/team-card', {
-                image: '/src/images/team/op-chabra.webp',
-                name: 'OP Chabra Sir',
-                role: 'Manager & Co-founder',
-                bio: 'Manages operations and financial aspects including accounts and administrative affairs. His strategic oversight ensures smooth functioning of all organizational activities and sustainable growth.',
-                social: {
-                    linkedin: '#',
-                    twitter: '#'
-                },
-                delay: 200
-            }) %>
-            
-            <%- include('components/team-card', {
-                image: '/src/images/team/maddy-sir.webp',
-                name: 'Maddy',
-                role: 'Co-founder & Operations Handler',
-                bio: 'Handles execution and manages candle workshop operations. His hands-on approach ensures quality implementation of programs and maintains direct connection with beneficiaries and community members.',
-                social: {
-                    linkedin: '#',
-                    facebook: '#'
-                },
-                delay: 300
-            }) %>
-            
-            <%- include('components/team-card', {
-                image: '/src/images/team/vicky-sir.webp',
-                name: 'Vicky Rawat',
-                role: 'Co-founder & Technical Support',
-                bio: 'Provides teaching technical support and assists in NGO execution. His expertise in technical aspects and educational methodologies enhances the quality of our programs and training initiatives.',
-                social: {
-                    linkedin: '#',
-                    instagram: '#'
-                },
-                delay: 400
-            }) %>
-        </div>
-    </div>
-</section>
 
 <%- include('partials/footer') %>
 
 <!-- Loading Screen -->
+<script src="/js/before-after-slider.js"></script>
 <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
         <div class="loading-logo">

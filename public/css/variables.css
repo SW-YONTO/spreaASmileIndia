@@ -3,10 +3,10 @@
 
 :root {
   /* ===== BRAND COLORS ===== */
-  --color-primary: #603fee;        /* Spread A Smile Orange */
-  --color-secondary: #8a6fff;       /* Vibrant Red */
+  --color-primary: #ee853f;        /* Spread A Smile Orange */
+  --color-secondary: #ffc56f;       /* Vibrant Red */
   --color-accent: #EC4F78;          /* Warm Pink */
-  --color-tertiary: #7c3aed;        /* Deep Purple */
+  --color-tertiary: #ed463a;        /* Deep Purple */
   
   /* ===== STATUS COLORS ===== */
   --color-success: #27ae60;         /* Growth Green */

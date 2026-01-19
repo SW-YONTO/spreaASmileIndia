@@ -1,0 +1,35 @@
+<div class="transformation-card before-after-slider-card" data-aos="fade-up" data-aos-delay="<%= delay || 500 %>">
+    <div class="slider-container">
+        <div class="slider-images">
+            <!-- After Image (Background) -->
+            <div class="slider-image-after">
+                <img src="<%= afterImage %>" alt="<%= afterAlt || 'Today' %>" loading="lazy">
+            </div>
+            
+            <!-- Before Image (Overlay) -->
+            <div class="slider-image-before" style="clip-path: inset(0 50% 0 0);">
+                <img src="<%= beforeImage %>" alt="<%= beforeAlt || 'Before' %>" loading="lazy">
+            </div>
+            
+            <!-- Slider Handle -->
+            <div class="slider-handle" style="left: 50%;">
+                <div class="slider-line"></div>
+                <div class="slider-button">
+                  <i class="fas fa-arrows-alt-h"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Labels -->
+        <div class="slider-labels">
+            <span class="slider-label slider-label-before"><%= beforeLabel || 'Before' %></span>
+            <span class="slider-label slider-label-after"><%= afterLabel || 'Today' %></span>
+        </div>
+        
+        <!-- Card Info -->
+        <div class="slider-info">
+            <h3 class="slider-title"><%= title %></h3>
+            <p class="slider-caption"><%= caption %></p>
+        </div>
+    </div>
+</div>
